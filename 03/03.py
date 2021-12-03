@@ -27,8 +27,6 @@ if __name__ == '__main__':
     # """
     timer.start()
     data = utils.read_str_sequence()
-    flip = {'0': '1', '1': '0'}
-    n_lines = len(data)
     n_bits = len(data[0])
 
     oxygen = data.copy()
