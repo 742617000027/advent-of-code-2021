@@ -23,8 +23,8 @@ def bingo(numbers, boards, mode='first'):
         for j, board in enumerate(boards):
             board[board == number] *= -1
             if i >= 4:
-                v = np.all(np.sign(board) == -1, axis=0)
-                h = np.all(np.sign(board) == -1, axis=1)
+                v = np.all(board < 0, axis=0)
+                h = np.all(board < 0, axis=1)
                 if np.any(h) or np.any(v):
                     winning_boards.add(j)
                     if mode == 'first' or (mode == 'last' and len(winning_boards) == len(boards)):
