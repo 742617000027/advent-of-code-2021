@@ -28,7 +28,7 @@ def bingo(numbers, boards, mode='first'):
                 if np.any(h) or np.any(v):
                     winning_boards.add(j)
                     if mode == 'first' or (mode == 'last' and len(winning_boards) == len(boards)):
-                        return (np.sum(board[np.sign(board) == 1] - 1)) * (number - 1)
+                        return (np.sum(board[board > 0] - 1)) * (number - 1)
 
 
 if __name__ == '__main__':
