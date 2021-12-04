@@ -26,12 +26,9 @@ def bingo(numbers, boards, mode='first'):
                 v = np.all(np.sign(board) == -1, axis=0)
                 h = np.all(np.sign(board) == -1, axis=1)
                 if np.any(h) or np.any(v):
-                    if mode == 'first':
+                    winning_boards.add(j)
+                    if mode == 'first' or (mode == 'last' and len(winning_boards) == len(boards)):
                         return (np.sum(board[np.sign(board) == 1] - 1)) * (number - 1)
-                    else:
-                        winning_boards.add(j)
-                        if len(winning_boards) == len(boards):
-                            return (np.sum(board[np.sign(board) == 1] - 1)) * (number - 1)
 
 
 if __name__ == '__main__':
