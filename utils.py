@@ -13,7 +13,7 @@ class Timer:
     def stop(self):
         self.toc = process_time()
         self.dur = self.toc - self.tic
-        print(f'fininshed in {1000 * self.dur:.2f}ms')
+        print(f'finished in {1000 * self.dur:.2f}ms')
 
 
 def read_int_sequence(file='input'):
