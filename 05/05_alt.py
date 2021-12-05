@@ -6,7 +6,7 @@ import utils
 
 def parse_lines(data, mode='HV'):
     assert mode in ['HV', 'all'], 'Mode must be one of `HV` or `all`.'
-    diagram = defaultdict(lambda: defaultdict(lambda: 0))
+    diagram = defaultdict(lambda: defaultdict(lambda: int()))
 
     for x, y, hv in [point for line in [
         list(zip(cycle(X) if len(X) == 1 else X, cycle(Y) if len(Y) == 1 else Y, cycle([len(X) == 1 or len(Y) == 1])))
