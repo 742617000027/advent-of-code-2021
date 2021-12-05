@@ -12,8 +12,7 @@ def parse_lines(data, mode='HV'):
         list(zip(cycle(X) if len(X) == 1 else X, cycle(Y) if len(Y) == 1 else Y, cycle([len(X) == 1 or len(Y) == 1])))
         for X, Y in [[list(range(z1, z2 + (1 if z2 >= z1 else -1), 1 if z2 >= z1 else -1)) for z1, z2 in
                       zip(*[tuple(int(n) for n in startend.split(',')) for startend in row.split(' -> ')])] for row in
-                     data]]
-                     for point in line]:
+                     data]] for point in line]:
         if hv or mode == 'all': diagram[x][y] += 1
     return diagram
 
