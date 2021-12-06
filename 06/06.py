@@ -1,5 +1,3 @@
-from collections import Counter
-
 import utils
 
 
@@ -17,8 +15,8 @@ if __name__ == '__main__':
     """
     timer.start()
     data = utils.read_str_sequence()
-    counts = Counter([int(fish) for fish in data[0].split(',')])
-    fishies = {day: counts[day] for day in range(9)}
+    sequence = [int(fish) for fish in data[0].split(',')]
+    fishies = {day: sequence.count(day) for day in range(9)}
     print(evolve(80, fishies))
     timer.stop()  # 0.24ms
     """
@@ -27,8 +25,8 @@ if __name__ == '__main__':
     # """
     timer.start()
     data = utils.read_str_sequence()
-    counts = Counter([int(fish) for fish in data[0].split(',')])
-    fishies = {day: counts[day] for day in range(9)}
+    sequence = [int(fish) for fish in data[0].split(',')]
+    fishies = {day: sequence.count(day) for day in range(9)}
     print(evolve(256, fishies))
     timer.stop()  # 0.41ms
     # """
