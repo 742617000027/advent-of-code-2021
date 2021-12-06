@@ -4,7 +4,12 @@ import utils
 def evolve(days, fishies):
     for _ in range(days):
         fishies[7] += fishies[0]
-        fishies = {day: amount for day, amount in zip(list(fishies.keys()), list(fishies.values())[1:] + [fishies[0]])}
+        fishies = {
+            day: amount
+            for day, amount
+            in zip(list(fishies.keys()),
+                   list(fishies.values())[1:] + [fishies[0]])
+        }
     return sum(fishies.values())
 
 
