@@ -15,9 +15,7 @@ def parse_lines(data, mode='HV'):
         X, Y = list(range(x1, x2 + (1 if x2 >= x1 else -1), 1 if x2 >= x1 else -1)), \
                list(range(y1, y2 + (1 if y2 >= y1 else -1), 1 if y2 >= y1 else -1))
         for x, y in zip(cycle(X) if len(X) == 1 else X, cycle(Y) if len(Y) == 1 else Y):
-            if (x1 == x2 or y1 == y2):
-                diagram[x][y] += 1
-            elif mode == 'all':
+            if x1 == x2 or y1 == y2 or mode == 'all':
                 diagram[x][y] += 1
 
     return diagram
