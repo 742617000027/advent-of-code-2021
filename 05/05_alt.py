@@ -6,14 +6,20 @@ import utils
 
 def parse_lines(data, mode='HV'):
     assert mode in ['HV', 'all'], 'Mode must be one of `HV` or `all`.'
-    diagram = defaultdict(lambda: defaultdict(lambda: int()))
+    diagram = defaultdict(lambda: defaultdict(lambda: 0))
+    for line in data:
+        start, end = line.split(' -> ')
+        x1, y1 = start.split(',')
+        x2, y2 = end.split(',')
+        x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+        X, Y = list(range(x1, x2 + (1 if x2 >= x1 else -1), 1 if x2 >= x1 else -1)), \
+               list(range(y1, y2 + (1 if y2 >= y1 else -1), 1 if y2 >= y1 else -1))
+        for x, y in zip(cycle(X) if len(X) == 1 else X, cycle(Y) if len(Y) == 1 else Y):
+            if (x1 == x2 or y1 == y2):
+                diagram[x][y] += 1
+            elif mode == 'all':
+                diagram[x][y] += 1
 
-    for x, y, hv in [point for line in [
-        list(zip(cycle(X) if len(X) == 1 else X, cycle(Y) if len(Y) == 1 else Y, cycle([len(X) == 1 or len(Y) == 1])))
-        for X, Y in [[list(range(z1, z2 + (1 if z2 >= z1 else -1), 1 if z2 >= z1 else -1)) for z1, z2 in
-                      zip(*[tuple(int(n) for n in startend.split(',')) for startend in row.split(' -> ')])] for row in
-                     data]] for point in line]:
-        if hv or mode == 'all': diagram[x][y] += 1
     return diagram
 
 
