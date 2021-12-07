@@ -16,13 +16,19 @@ class Timer:
         print(f'finished in {1000 * self.dur:.2f}ms')
 
 
-def read_int_sequence(file='input'):
+def read_int_lines(file='input'):
     with open(file, 'r') as fp:
         sequence = [int(n) for n in fp.read().splitlines()]
     return sequence
 
 
-def read_str_sequence(file='input'):
+def read_int_sequence(file='input'):
+    with open(file, 'r') as fp:
+        sequence = [int(n) for n in fp.read().split(',')]
+    return sequence
+
+
+def read_str_lines(file='input'):
     with open(file, 'r') as fp:
         sequence = fp.read().splitlines()
     return sequence
