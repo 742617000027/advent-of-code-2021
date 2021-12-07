@@ -6,7 +6,7 @@ if __name__ == '__main__':
     # Part 1
     """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     cmds = [(elem.split(' ')[0], int(elem.split(' ')[1])) for elem in data]
 
     depth = horizontal = 0
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # Part 2
     # """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     cmds = [(elem.split(' ')[0], int(elem.split(' ')[1])) for elem in data]
 
     depth = horizontal = aim = 0

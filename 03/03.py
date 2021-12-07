@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # Part 1
     """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     flip = {'0': '1', '1': '0'}
     n_lines = len(data)
     n_bits = len(data[0])
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     # Part 2
     # """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     n_bits = len(data[0])
 
     oxygen = data.copy()

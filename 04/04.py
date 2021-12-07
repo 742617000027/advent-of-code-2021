@@ -37,7 +37,7 @@ if __name__ == '__main__':
     # Part 1
     """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     numbers = [int(elem) + 1 for elem in data[0].split(',')]
     boards = parse_boards(data[2:])
     score= bingo(numbers, boards)
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # Part 2
     # """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     numbers = [int(elem) + 1 for elem in data[0].split(',')]
     boards = parse_boards(data[2:])
     score = bingo(numbers, boards, 'last')

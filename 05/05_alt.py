@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # Part 1
     """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     diagram = parse_lines(data)
     print(sum(val >= 2 for elem in diagram.values() for val in elem.values()))
     timer.stop()  # 59.03ms
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     # Part 2
     # """
     timer.start()
-    data = utils.read_str_sequence()
+    data = utils.read_str_lines()
     diagram = parse_lines(data, 'all')
     print(sum(val >= 2 for elem in diagram.values() for val in elem.values()))
     timer.stop()  # 99.90ms

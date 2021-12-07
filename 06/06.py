@@ -19,8 +19,8 @@ if __name__ == '__main__':
     # Part 1
     """
     timer.start()
-    data = utils.read_str_sequence()[0].split(',')
-    fishies = {day: data.count(f'{day}') for day in range(9)}
+    data = utils.read_int_sequence()
+    fishies = {day: data.count(day) for day in range(9)}
     print(evolve(80, fishies))
     timer.stop()  # 0.24ms
     """
@@ -28,8 +28,8 @@ if __name__ == '__main__':
     # Part 2
     # """
     timer.start()
-    data = utils.read_str_sequence()[0].split(',')
-    fishies = {day: data.count(f'{day}') for day in range(9)}
+    data = utils.read_int_sequence()
+    fishies = {day: data.count(day) for day in range(9)}
     print(evolve(256, fishies))
     timer.stop()  # 0.41ms
     # """
