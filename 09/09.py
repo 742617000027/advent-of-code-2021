@@ -38,12 +38,13 @@ def floodfill(point, data):
     H, W = data.shape
     h, w = point
     if data[h, w] != 0 or data[h, w] == 1:
-        return
+        return data
     else:
         data[h, w] = 1
         for dh, dw in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             if 0 <= h + dh <= H - 1 and 0 <= w + dw <= W:
-                floodfill((h + dh, w + dw), data)
+                data = floodfill((h + dh, w + dw), data)
+    return data
 
 
 if __name__ == '__main__':
@@ -75,7 +76,7 @@ if __name__ == '__main__':
     sizes = []
     for low in zip(*np.where(lows)):
         before = np.sum(data)
-        floodfill(low, data)
+        data = floodfill(low, data)
         sizes.append(np.abs(np.sum(data) - before))
     print(int(np.prod(sorted(sizes)[-3:])))
     timer.stop()  # 104.53ms
