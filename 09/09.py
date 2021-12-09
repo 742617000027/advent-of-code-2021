@@ -41,13 +41,7 @@ def floodfill(point, data):
         return
     else:
         data[y, x] = 1
-        neighbors = [
-            (-1, 0),
-            (1, 0),
-            (0, -1),
-            (0, 1)
-        ]
-        for dy, dx in neighbors:
+        for dy, dx in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             if 0 <= y + dy <= h - 1 and 0 <= x + dx <= w:
                 floodfill((y + dy, x + dx), data)
 
