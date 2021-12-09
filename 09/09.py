@@ -74,10 +74,8 @@ if __name__ == '__main__':
     conv = Conv()
     with torch.no_grad():
         lows = conv(data)
-    data = F.pad(data, (1, 1, 1, 1), value=9.)
-    lows = F.pad(lows, (1, 1, 1, 1))
-    data = data.squeeze().numpy()
-    lows = lows.squeeze().numpy()
+    data = F.pad(data, (1, 1, 1, 1), value=9.).squeeze().numpy()
+    lows = F.pad(lows, (1, 1, 1, 1)).squeeze().numpy()
     data[data != 9] = 0
     data[data == 9] = -1
     sizes = []
