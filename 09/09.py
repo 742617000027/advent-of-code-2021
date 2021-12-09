@@ -35,15 +35,15 @@ class Conv(nn.Module):
 
 
 def floodfill(point, data):
-    h, w = data.shape
-    y, x = point
-    if data[y, x] != 0 or data[y, x] == 1:
+    H, W = data.shape
+    h, w = point
+    if data[h, w] != 0 or data[h, w] == 1:
         return
     else:
-        data[y, x] = 1
-        for dy, dx in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            if 0 <= y + dy <= h - 1 and 0 <= x + dx <= w:
-                floodfill((y + dy, x + dx), data)
+        data[h, w] = 1
+        for dh, dw in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            if 0 <= h + dh <= H - 1 and 0 <= w + dw <= W:
+                floodfill((h + dh, w + dw), data)
 
 
 if __name__ == '__main__':
