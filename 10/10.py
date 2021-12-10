@@ -17,7 +17,7 @@ if __name__ == '__main__':
                 close_next.append(pairs[ch])
             else:
                 if ch == close_next[-1]:
-                    close_next.pop(-1)
+                    close_next.pop()
                 else:
                     score += points[ch]
                     break
@@ -40,7 +40,7 @@ if __name__ == '__main__':
                 close_next.append(pairs[ch])
             else:
                 if ch == close_next[-1]:
-                    close_next.pop(-1)
+                    close_next.pop()
                 else:
                     corrupt = True
                     break
