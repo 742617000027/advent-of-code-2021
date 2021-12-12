@@ -16,23 +16,6 @@ def build(data):
     return G
 
 
-def prune(G):
-    dead_ends = set()
-    while True:
-        H = G.copy()
-        for cave in G:
-            if len(G[cave]) == 1 and G[cave][0].islower():
-                dead_ends.add(cave)
-                del H[cave]
-        if G == H:
-            break
-        else:
-            G = H
-    for cave in G:
-        G[cave] = [neighbor for neighbor in sorted(G[cave]) if neighbor not in dead_ends]
-    return G
-
-
 def traverse(G, current_cave, current_path=None, can_revisit=False):
     if current_path == None:
         current_path = []
@@ -55,7 +38,7 @@ if __name__ == '__main__':
     """
     timer.start()
     data = utils.read_str_lines()
-    G = prune(build(data))
+    G = build(data)
     PATHS = []
     traverse(G, 'start')
     print(len(PATHS))
