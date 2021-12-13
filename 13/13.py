@@ -5,17 +5,16 @@ import utils
 
 
 def parse_data(data):
-    points, folds = [], []
-    W, H = 0, 0
+    folds, W, H = [], [], []
     for line in data:
         if ',' in line:
             w, h = [int(elem) for elem in line.split(',')]
-            W, H = w if w > W else W, h if h > H else H
-            points.append((h, w))
+            W.append(w)
+            H.append(h)
         elif 'fold' in line:
             folds.append((0 if 'y' in line else 1, int(line.split('=')[1])))
-    grid = np.zeros((H + 1, W + 1))
-    grid[tuple(zip(*points))] = 1
+    grid = np.zeros((max(H) + 1, max(W) + 1))
+    grid[H, W] = 1
     return grid, folds
 
 
