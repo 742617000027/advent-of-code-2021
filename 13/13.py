@@ -13,15 +13,15 @@ def parse_data(data):
             H.append(h)
         elif 'fold' in line:
             folds.append((0 if 'y' in line else 1, int(line.split('=')[1])))
-    grid = np.zeros((max(H) + 1, max(W) + 1))
-    grid[H, W] = 1
+    grid = np.zeros((max(H) + 1, max(W) + 1), dtype=bool)
+    grid[H, W] = True
     return grid, folds
 
 
 def fold_grid(fold, grid):
     axis, z = fold
-    return np.sign(grid[:z, :] + np.flipud(grid[z + 1:, :]) if axis == 0 \
-                       else grid[:, :z] + np.fliplr(grid[:, z + 1:]))
+    return grid[:z, :] + np.flipud(grid[z + 1:, :]) if axis == 0 \
+        else grid[:, :z] + np.fliplr(grid[:, z + 1:])
 
 
 if __name__ == '__main__':
