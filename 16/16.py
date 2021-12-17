@@ -59,10 +59,11 @@ def interpreter(binary, packet):
         packet['contents'] = []
         bits_parsed, packets_parsed = 0, 0
         while (bits_parsed if length_type == '0' else packets_parsed) < limit:
-            packet['contents'].append(dict())
-            interpreter(body[bits_parsed:], packet['contents'][-1])
-            bits_parsed += packet['contents'][-1]['len']
+            subpacket = dict()
+            interpreter(body[bits_parsed:], subpacket)
+            bits_parsed += subpacket['len']
             packets_parsed += 1
+            packet['contents'].append(subpacket)
         packet['len'] += bits_parsed
         packet['value'] = evaluate(packet)
 
