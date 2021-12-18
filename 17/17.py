@@ -39,12 +39,14 @@ if __name__ == '__main__':
     solutions = set()
     for steps in range(1, max_steps + 1):
         for x0 in range(x0_min, x0_max + 1):
+            x_end_pos = x0 * (steps if steps <= x0 else x0) - sum(range((steps if steps <= x0 else x0)))
+            if not data['x']['min'] <= x_end_pos <= data['x']['max']:
+                continue
             for y0 in range(y0_min, y0_max + 1):
-                x_end_pos = x0 * (steps if steps <= x0 else x0) - sum(range((steps if steps <= x0 else x0)))
                 y_end_pos = y0 * steps - sum(range(steps))
                 if data['x']['min'] <= x_end_pos <= data['x']['max'] and data['y']['min'] <= y_end_pos <= data['y'][
                     'max']:
                     solutions.add((x0, y0))
     print(len(solutions))
-    timer.stop()  # 12493.29ms
+    timer.stop()  # 118.45ms
     # """
