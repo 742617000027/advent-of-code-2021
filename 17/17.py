@@ -4,7 +4,7 @@ if __name__ == '__main__':
     timer = utils.Timer()
 
     # Part 1
-    # """
+    """
     timer.start()
     data = {
         elem.split('=')[0]: {
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     }
     print(sum(range(abs(data['y']['min']))))
     timer.stop()  # 0.08ms
-    # """
+    """
 
     # Part 2
     # """
